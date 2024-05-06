@@ -1,4 +1,4 @@
-package com.serkanguner.bloggershere.utility;
+package com.serkanguner.serkangunermaraton5testuygulamasi.utility;
 
 import java.util.List;
 import java.util.Optional;

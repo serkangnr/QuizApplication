@@ -18,6 +18,7 @@ public class AnswerController {
     @PutMapping(SAVE)
     @CrossOrigin("*")
     public ResponseEntity<String> saveAnswer(AnswerSaveRequestDto answerSaveRequestDto){
-        return ResponseEntity.ok(answerService.saveAnswer(answerSaveRequestDto));
+        ResponseEntity<String> responseEntity = ResponseEntity.ok(answerService.saveAnswer(answerSaveRequestDto));
+       return responseEntity;
     }
 }

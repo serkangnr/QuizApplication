@@ -17,6 +17,7 @@ public class AnswerService extends ServiceManager<Answer,Long> {
         this.answerRepository = answerRepository;
     }
 
+
     public String saveAnswer(AnswerSaveRequestDto answerSaveRequestDto){
         Question  question = Question.builder()
                 .id(answerSaveRequestDto.questionid())
@@ -27,6 +28,7 @@ public class AnswerService extends ServiceManager<Answer,Long> {
                 .question(question)
                 .build();
         answerRepository.save(answer);
+
         return "Kayit Basarili";
     }
 

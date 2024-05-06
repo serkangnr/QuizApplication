@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(ROOT + QUESTION)
@@ -27,18 +28,12 @@ public class QuestionController {
     }
 
 
-//    @PostMapping(SAVEQUESTIONANDANSWER)
-//    @CrossOrigin("*")
-//    public ResponseEntity<String> saveQuestionAndAnswer(@RequestBody QuestionWithAnswerSaveRequestDto questionWithAnswerSaveRequestDto){
-//        questionService.saveQuestionWithAnswers(questionWithAnswerSaveRequestDto);
-//        return ResponseEntity.ok("Question and answer saved");
-//    }
-
     @GetMapping(FINDALLONLYQUESTION)
     @CrossOrigin("*")
     public ResponseEntity<List<QuestionFindAllResponseDto>> getOnlyQuestion(){
         return ResponseEntity.ok(questionService.getOnlyQuestions());
     }
+
 
     @GetMapping(FINDQUESTIONANDANSWER)
     @CrossOrigin("*")
@@ -50,6 +45,20 @@ public class QuestionController {
     @CrossOrigin("*")
     public ResponseEntity<List<QuestionAndTrueAnswerResponseDto>> getResult(){
         return ResponseEntity.ok(questionService.getQuestionAndAnswerWithIsCorrect());
+    }
+
+    @GetMapping(FINDBYID)
+    @CrossOrigin("*")
+    public ResponseEntity<QuestionAndTrueAnswerResponseDto> findByIdDto(@RequestParam("id") Long id) {
+        ResponseEntity<QuestionAndTrueAnswerResponseDto> dtoResponseEntity = ResponseEntity.ok(questionService.findUserDtoID(id));
+        return dtoResponseEntity;
+    }
+
+    @GetMapping(FINDQUESTIONBYCONTENT)
+    @CrossOrigin("*")
+    public ResponseEntity<List<QuestionWithAnswerFindAllResponseDto>> findByContentDto(@RequestParam("content") String content) {
+        ResponseEntity<List<QuestionWithAnswerFindAllResponseDto>> listResponseEntity = ResponseEntity.ok(questionService.findQuestionsByContentContaining(content));
+        return listResponseEntity;
     }
 
 

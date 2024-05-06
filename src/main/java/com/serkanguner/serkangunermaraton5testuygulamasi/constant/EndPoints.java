@@ -27,4 +27,5 @@ public class EndPoints {
     public static final String FINDALLONLYQUESTION = "/findallonlyquestion";
     public static final String FINDQUESTIONANDANSWER = "/findallquestionandanswer";
     public static final String FINDQUESTIONRESULT = "/findquestionresult";
+    public static final String FINDQUESTIONBYCONTENT = "/findquestionbycontent";
 }
